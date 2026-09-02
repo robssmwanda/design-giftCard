@@ -1,0 +1,104 @@
+<header id="site-header" class="sticky top-0 z-40 transition-all duration-300 bg-white/0 border-b border-transparent">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between gap-4">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 shrink-0">
+        <div class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 shadow-md">
+          <%- icon('sparkles', { size: 20, strokeWidth: 2.5, className: 'text-white' }) %>
+        </div>
+        <span class="font-display text-xl font-extrabold tracking-tight text-ink-900">
+          Kado<span class="text-brand-600">pay</span>
+        </span>
+      </a>
+
+      <!-- Search — desktop -->
+      <div class="relative hidden flex-1 max-w-md md:block">
+        <div class="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-400">
+          <%- icon('search', { size: 16 }) %>
+        </div>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search brands or categories..."
+          class="w-full rounded-full border border-ink-200 bg-white/70 py-2.5 pl-10 pr-4 text-sm text-ink-800 placeholder:text-ink-400 transition-all focus:border-brand-400 focus:bg-white focus:outline-none focus:ring-4 focus:ring-brand-500/10"
+        />
+      </div>
+
+      <!-- Nav links — desktop -->
+      <nav class="hidden items-center gap-1 lg:flex">
+        <a href="#catalog" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-600 transition-colors hover:bg-ink-100 hover:text-ink-900">Browse</a>
+        <a href="#featured" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-600 transition-colors hover:bg-ink-100 hover:text-ink-900">Featured</a>
+        <a href="#how-it-works" class="rounded-lg px-3 py-2 text-sm font-medium text-ink-600 transition-colors hover:bg-ink-100 hover:text-ink-900">How it works</a>
+      </nav>
+
+      <!-- Right actions -->
+      <div class="flex items-center gap-2">
+        <a href="/cart" id="open-cart-btn" class="relative flex items-center gap-2 rounded-full bg-ink-900 px-4 py-2.5 text-sm font-semibold text-white transition-all hover:bg-ink-800 active:scale-95">
+          <%- icon('shopping-bag', { size: 16 }) %>
+          <span class="hidden sm:inline">Cart</span>
+          <span id="cart-badge" class="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-brand-500 px-1 text-xs font-bold text-white ring-2 ring-white" style="display:none;"></span>
+        </a>
+
+        <!-- Account avatar — links to /signup when logged out, opens dropdown when logged in -->
+        <div class="relative">
+          <a id="account-avatar-btn" href="/signup" class="flex h-10 w-10 items-center justify-center rounded-full bg-ink-100 text-ink-600 transition-all hover:bg-ink-200 active:scale-95" aria-label="Account">
+            <span id="account-avatar-content"><%- icon('user', { size: 20 }) %></span>
+          </a>
+
+          <!-- Account dropdown (logged-in state only, shown via JS) -->
+          <div id="account-dropdown" class="absolute right-0 top-12 z-50 w-56 origin-top-right rounded-2xl bg-white p-2 shadow-card-hover ring-1 ring-ink-200/60 transition-all duration-200" style="display:none; opacity:0; transform:translateY(-4px) scale(0.97); pointer-events:none;">
+            <div id="dropdown-logged-in" style="display:none;">
+              <div class="flex items-center gap-3 px-3 py-2">
+                <div id="dropdown-avatar" class="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-brand-500 to-brand-700 text-sm font-bold text-white"></div>
+                <div class="min-w-0">
+                  <p id="dropdown-user-name" class="truncate text-sm font-semibold text-ink-900"></p>
+                  <p id="dropdown-user-email" class="truncate text-xs text-ink-500"></p>
+                </div>
+              </div>
+              <div class="my-1 h-px bg-ink-100"></div>
+              <a href="#" class="flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium text-ink-700 transition-colors hover:bg-ink-100">
+                <%- icon('user-circle', { size: 16, className: 'text-ink-500' }) %>
+                My account
+              </a>
+              <a href="#" class="flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium text-ink-700 transition-colors hover:bg-ink-100">
+                <%- icon('user', { size: 16, className: 'text-ink-500' }) %>
+                Profile
+              </a>
+              <a href="#" class="flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium text-ink-700 transition-colors hover:bg-ink-100">
+                <%- icon('package', { size: 16, className: 'text-ink-500' }) %>
+                Orders
+              </a>
+              <div class="my-1 h-px bg-ink-100"></div>
+              <button id="logout-btn" class="flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium text-red-600 transition-colors hover:bg-red-50">
+                <%- icon('log-out', { size: 16 }) %>
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button id="open-mobile-nav-btn" class="flex h-10 w-10 items-center justify-center rounded-full text-ink-700 hover:bg-ink-100 lg:hidden" aria-label="Open menu">
+          <%- icon('menu', { size: 20 }) %>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search — mobile -->
+    <div class="pb-3 md:hidden">
+      <div class="relative">
+        <div class="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-ink-400">
+          <%- icon('search', { size: 16 }) %>
+        </div>
+        <input
+          type="text"
+          id="search-input-mobile"
+          placeholder="Search brands..."
+          class="w-full rounded-full border border-ink-200 bg-white py-2.5 pl-10 pr-10 text-sm text-ink-800 placeholder:text-ink-400 focus:border-brand-400 focus:outline-none focus:ring-4 focus:ring-brand-500/10"
+        />
+        <button id="search-clear-mobile" class="absolute right-3 top-1/2 -translate-y-1/2 text-ink-400 hover:text-ink-600" style="display:none;">
+          <%- icon('x', { size: 16 }) %>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>

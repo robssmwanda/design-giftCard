@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up — Kadopay</title>
+    <meta name="description" content="Create your Kadopay account." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body>
+    <div class="min-h-screen bg-ink-50">
+      <%- include('partials/header') %>
+
+      <main class="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12">
+        <div class="w-full max-w-md">
+          <!-- Back link -->
+          <a href="/" class="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-ink-500 transition-colors hover:text-ink-700">
+            <%- icon('arrow-left', { size: 16 }) %>
+            Back to home
+          </a>
+
+          <!-- Step 1: Registration form -->
+          <div id="signup-step-form" class="rounded-2xl bg-white p-8 shadow-card ring-1 ring-ink-200/60 animate-fade-up">
+            <div class="mb-8 text-center">
+              <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 shadow-md">
+                <%- icon('sparkles', { size: 24, strokeWidth: 2.5, className: 'text-white' }) %>
+              </div>
+              <h1 class="font-display text-2xl font-extrabold tracking-tight text-ink-900">Create your account</h1>
+              <p class="mt-1.5 text-sm text-ink-500">Join Kadopay and start saving on gift cards</p>
+            </div>
+
+            <form id="signup-form" novalidate>
+              <!-- Full name -->
+              <div class="auth-field">
+                <label for="su-name" class="auth-label">Full name</label>
+                <div class="auth-input-wrap">
+                  <span class="auth-input-icon"><%- icon('user', { size: 16, className: 'text-ink-400' }) %></span>
+                  <input
+                    type="text"
+                    id="su-name"
+                    name="name"
+                    placeholder="Jane Doe"
+                    autocomplete="name"
+                    class="auth-input pl-10"
+                    required
+                  />
+                </div>
+                <p class="auth-error" data-error-for="su-name"></p>
+              </div>
+
+              <!-- Email -->
+              <div class="auth-field">
+                <label for="su-email" class="auth-label">Email address</label>
+                <div class="auth-input-wrap">
+                  <span class="auth-input-icon"><%- icon('mail', { size: 16, className: 'text-ink-400' }) %></span>
+                  <input
+                    type="email"
+                    id="su-email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    class="auth-input pl-10"
+                    required
+                  />
+                </div>
+                <p class="auth-error" data-error-for="su-email"></p>
+              </div>
+
+              <!-- Country -->
+              <div class="auth-field">
+                <label for="su-country" class="auth-label">Country</label>
+                <div class="country-dropdown" id="su-country-wrap">
+                  <button type="button" id="su-country" class="country-trigger" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="auth-input-icon"><%- icon('globe', { size: 16, className: 'text-ink-400' }) %></span>
+                    <span class="country-trigger-text" id="su-country-text">Select your country</span>
+                    <span class="auth-select-chevron"><%- icon('chevron-down', { size: 14, className: 'text-ink-400' }) %></span>
+                  </button>
+                  <input type="hidden" id="su-country-value" name="country" value="" />
+                  <div class="country-menu" id="su-country-menu" role="listbox">
+                    <div class="country-search-wrap">
+                      <span class="country-search-icon"><%- icon('search', { size: 14, className: 'text-ink-400' }) %></span>
+                      <input type="text" class="country-search" id="su-country-search" placeholder="Search country or code…" autocomplete="off" />
+                    </div>
+                    <div class="country-options" id="su-country-options"></div>
+                  </div>
+                </div>
+                <p class="auth-error" data-error-for="su-country"></p>
+              </div>
+
+              <!-- Phone number: separate dial code + number fields -->
+              <div class="auth-field">
+                <label for="su-phone" class="auth-label">Phone number</label>
+                <div class="flex gap-2">
+                  <!-- Country prefix / dial code -->
+                  <div class="auth-input-wrap shrink-0" style="width:5.5rem;">
+                    <span class="auth-input-icon"><%- icon('globe', { size: 16, className: 'text-ink-400' }) %></span>
+                    <input
+                      type="text"
+                      id="su-dial-code"
+                      name="dialCode"
+                      placeholder="+1"
+                      autocomplete="tel-country-code"
+                      class="auth-input pl-10 pr-2 text-center"
+                      value="+1"
+                      required
+                    />
+                  </div>
+                  <!-- Phone number -->
+                  <div class="auth-input-wrap flex-1">
+                    <span class="auth-input-icon"><%- icon('phone', { size: 16, className: 'text-ink-400' }) %></span>
+                    <input
+                      type="tel"
+                      id="su-phone"
+                      name="phone"
+                      placeholder="555 123 4567"
+                      autocomplete="tel-national"
+                      class="auth-input pl-10"
+                      required
+                    />
+                  </div>
+                </div>
+                <p class="auth-error" data-error-for="su-dial-code"></p>
+                <p class="auth-error" data-error-for="su-phone"></p>
+                <p class="mt-1.5 text-xs text-ink-400">We'll send a verification code to this number.</p>
+              </div>
+
+              <!-- Password -->
+              <div class="auth-field">
+                <label for="su-password" class="auth-label">Password</label>
+                <div class="auth-input-wrap">
+                  <span class="auth-input-icon"><%- icon('lock', { size: 16, className: 'text-ink-400' }) %></span>
+                  <input
+                    type="password"
+                    id="su-password"
+                    name="password"
+                    placeholder="At least 8 characters"
+                    autocomplete="new-password"
+                    class="auth-input pl-10 pr-10"
+                    required
+                  />
+                  <button type="button" class="auth-toggle-password" data-toggle="su-password" aria-label="Toggle password visibility">
+                    <%- icon('eye-off', { size: 16, className: 'text-ink-400' }) %>
+                  </button>
+                </div>
+                <div class="auth-strength" aria-live="polite">
+                  <div class="auth-strength-bar"></div>
+                  <div class="auth-strength-bar"></div>
+                  <div class="auth-strength-bar"></div>
+                </div>
+                <p class="auth-strength-label"></p>
+                <div class="reset-password-requirements signup-password-requirements">
+                  <p class="reset-req-title">Password requirements:</p>
+                  <ul class="reset-req-list">
+                    <li data-signup-req="length">At least 8 characters</li>
+                    <li data-signup-req="upper">One uppercase letter</li>
+                    <li data-signup-req="lower">One lowercase letter</li>
+                    <li data-signup-req="number">One number</li>
+                  </ul>
+                </div>
+                <p class="auth-error" data-error-for="su-password"></p>
+              </div>
+
+              <!-- Confirm password -->
+              <div class="auth-field">
+                <label for="su-confirm" class="auth-label">Confirm password</label>
+                <div class="auth-input-wrap">
+                  <span class="auth-input-icon"><%- icon('lock', { size: 16, className: 'text-ink-400' }) %></span>
+                  <input
+                    type="password"
+                    id="su-confirm"
+                    name="confirmPassword"
+                    placeholder="Re-enter your password"
+                    autocomplete="new-password"
+                    class="auth-input pl-10 pr-10"
+                    required
+                  />
+                  <button type="button" class="auth-toggle-password" data-toggle="su-confirm" aria-label="Toggle password visibility">
+                    <%- icon('eye-off', { size: 16, className: 'text-ink-400' }) %>
+                  </button>
+                </div>
+                <p class="auth-error" data-error-for="su-confirm"></p>
+              </div>
+
+              <!-- Submit -->
+              <button type="submit" id="signup-submit" class="auth-submit-btn">
+                <span class="auth-btn-text">Create account</span>
+                <span class="auth-btn-spinner" style="display:none;">
+                  <div class="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white"></div>
+                </span>
+              </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="my-6 flex items-center gap-3">
+              <div class="h-px flex-1 bg-ink-100"></div>
+              <span class="text-xs font-medium text-ink-400">OR</span>
+              <div class="h-px flex-1 bg-ink-100"></div>
+            </div>
+
+            <p class="text-center text-sm text-ink-500">
+              Already have an account?
+              <a href="/login" class="font-semibold text-brand-600 transition-colors hover:text-brand-700">Log in</a>
+            </p>
+          </div>
+
+          <!-- Step 2: Email verification (hidden initially) -->
+          <div id="signup-step-email" class="rounded-2xl bg-white p-8 shadow-card ring-1 ring-ink-200/60 animate-fade-up" style="display:none;">
+            <div class="mb-8 text-center">
+              <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50">
+                <%- icon('mail', { size: 24, className: 'text-brand-600' }) %>
+              </div>
+              <h1 class="font-display text-2xl font-extrabold tracking-tight text-ink-900">Verify your email</h1>
+              <p class="mt-1.5 text-sm text-ink-500">We sent a verification link to<br /><span id="email-verify-display" class="font-semibold text-ink-700"></span></p>
+            </div>
+
+            <form id="email-verify-form" novalidate>
+              <div class="auth-field">
+                <label class="auth-label">Enter the 6-digit code from your email</label>
+                <div class="flex justify-between gap-2" id="email-otp-inputs">
+                  <input type="text" maxlength="1" class="auth-otp-input" data-email-otp-index="0" inputmode="numeric" />
+                  <input type="text" maxlength="1" class="auth-otp-input" data-email-otp-index="1" inputmode="numeric" />
+                  <input type="text" maxlength="1" class="auth-otp-input" data-email-otp-index="2" inputmode="numeric" />
+                  <input type="text" maxlength="1" class="auth-otp-input" data-email-otp-index="3" inputmode="numeric" />
+                  <input type="text" maxlength="1" class="auth-otp-input" data-email-otp-index="4" inputmode="numeric" />
+                  <input type="text" maxlength="1" class="auth-otp-input" data-email-otp-index="5" inputmode="numeric" />
+                </div>
+                <p class="auth-error" data-error-for="email-otp"></p>
+                <p class="mt-2 text-center text-xs text-ink-400">
+                  Didn't receive a code?
+                  <button type="button" id="email-resend" class="font-medium text-brand-600 hover:text-brand-700" disabled>Resend code in 60s</button>
+                </p>
+              </div>
+
+              <button type="submit" id="email-verify-submit" class="auth-submit-btn">
+                <span class="auth-btn-text">Verify email</span>
+                <span class="auth-btn-spinner" style="display:none;">
+                  <div class="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white"></div>
+                </span>
+              </button>
+            </form>
+
+            <button id="email-back" class="mt-4 w-full text-center text-sm text-ink-500 transition-colors hover:text-ink-700">Back to sign up</button>
+          </div>
+
+          <!-- Step 3: Phone verification (hidden initially) -->
+          <div id="signup-step-otp" class="rounded-2xl bg-white p-8 shadow-card ring-1 ring-ink-200/60 animate-fade-up" style="display:none;">
+            <div class="mb-8 text-center">
+              <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50">
+                <%- icon('phone', { size: 24, className: 'text-brand-600' }) %>
+              </div>
+              <h1 class="font-display text-2xl font-extrabold tracking-tight text-ink-900">Verify your phone</h1>
+              <p class="mt-1.5 text-sm text-ink-500">Enter the 6-digit code sent to<br /><span id="otp-phone-display" class="font-semibold text-ink-700"></span></p>
+            </div>
+
+            <form id="otp-form" novalidate>
+              <div class="auth-field">
+                <label class="auth-label">Verification code</label>
+                <div class="flex justify-between gap-2" id="otp-inputs">
+                  <input type="text" maxlength="1" class="auth-otp-input" data-otp-index="0" inputmode="numeric" />
+                  <input type="text" maxlength="1" class="auth-otp-input" data-otp-index="1" inputmode="numeric" />
+                  <input type="text" maxlength="1" class="auth-otp-input" data-otp-index="2" inputmode="numeric" />
+                  <input type="text" maxlength="1" class="auth-otp-input" data-otp-index="3" inputmode="numeric" />
+                  <input type="text" maxlength="1" class="auth-otp-input" data-otp-index="4" inputmode="numeric" />
+                  <input type="text" maxlength="1" class="auth-otp-input" data-otp-index="5" inputmode="numeric" />
+                </div>
+                <p class="auth-error" data-error-for="otp"></p>
+                <p class="mt-2 text-center text-xs text-ink-400">
+                  Didn't receive a code?
+                  <button type="button" id="otp-resend" class="font-medium text-brand-600 hover:text-brand-700" disabled>Resend code in 60s</button>
+                </p>
+              </div>
+
+              <button type="submit" id="otp-submit" class="auth-submit-btn">
+                <span class="auth-btn-text">Verify & continue</span>
+                <span class="auth-btn-spinner" style="display:none;">
+                  <div class="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white"></div>
+                </span>
+              </button>
+            </form>
+
+            <button id="otp-back" class="mt-4 w-full text-center text-sm text-ink-500 transition-colors hover:text-ink-700">Back to sign up</button>
+          </div>
+
+          <!-- Step 3: Success (hidden initially) -->
+          <div id="signup-step-success" class="rounded-2xl bg-white p-8 shadow-card ring-1 ring-ink-200/60 animate-fade-up text-center" style="display:none;">
+            <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-brand-50">
+              <%- icon('check-circle-2', { size: 36, className: 'text-brand-500' }) %>
+            </div>
+            <h1 class="font-display text-2xl font-extrabold tracking-tight text-ink-900">Account created!</h1>
+            <p class="mt-2 text-sm text-ink-500">Your Kadopay account is ready. Your cart has been preserved.</p>
+            <a href="/" class="mt-6 inline-flex items-center gap-2 rounded-full bg-ink-900 px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-ink-800 active:scale-95">
+              <%- icon('arrow-right', { size: 16 }) %>
+              Continue shopping
+            </a>
+          </div>
+
+          <!-- Trust note -->
+          <div class="mt-6 flex items-center justify-center gap-2 text-xs text-ink-400">
+            <%- icon('shield-check', { size: 14, className: 'text-brand-500' }) %>
+            Your data is protected with 256-bit SSL encryption
+          </div>
+        </div>
+      </main>
+
+      <%- include('partials/footer') %>
+      <%- include('partials/mobile-nav') %>
+    </div>
+
+    <script src="/js/countries.js"></script>
+    <script src="/js/auth.js"></script>
+  </body>
+</html>

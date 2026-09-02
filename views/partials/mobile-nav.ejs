@@ -1,0 +1,52 @@
+<!-- Mobile nav drawer -->
+<div id="mobile-nav-backdrop" class="fixed inset-0 z-50 bg-ink-950/40 backdrop-blur-sm transition-opacity duration-300 lg:hidden opacity-0 pointer-events-none"></div>
+<div id="mobile-nav-drawer" class="fixed left-0 top-0 z-50 h-full w-72 max-w-[80%] bg-white shadow-2xl transition-transform duration-300 lg:hidden -translate-x-full">
+  <div class="flex items-center justify-between border-b border-ink-100 px-5 py-4">
+    <div class="flex items-center gap-2">
+      <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-700">
+        <%- icon('sparkles', { size: 16, strokeWidth: 2.5, className: 'text-white' }) %>
+      </div>
+      <span class="font-display text-lg font-extrabold text-ink-900">
+        Kado<span class="text-brand-600">pay</span>
+      </span>
+    </div>
+    <button id="close-mobile-nav-btn" class="flex h-9 w-9 items-center justify-center rounded-full text-ink-500 hover:bg-ink-100">
+      <%- icon('x', { size: 20 }) %>
+    </button>
+  </div>
+  <nav class="flex flex-col p-4">
+    <a href="#catalog" class="mobile-nav-link rounded-xl px-4 py-3 text-sm font-semibold text-ink-700 transition-colors hover:bg-ink-100">Browse all</a>
+    <a href="#featured" class="mobile-nav-link rounded-xl px-4 py-3 text-sm font-semibold text-ink-700 transition-colors hover:bg-ink-100">Featured</a>
+    <a href="#how-it-works" class="mobile-nav-link rounded-xl px-4 py-3 text-sm font-semibold text-ink-700 transition-colors hover:bg-ink-100">How it works</a>
+    <div class="my-2 h-px bg-ink-100"></div>
+    <a href="/login" class="mobile-nav-link flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-semibold text-ink-700 transition-colors hover:bg-ink-100">
+      <%- icon('user', { size: 18, className: 'text-ink-500' }) %>
+      Login
+    </a>
+    <a href="/signup" class="mobile-nav-link flex items-center gap-2.5 rounded-xl px-4 py-3 text-sm font-semibold text-ink-700 transition-colors hover:bg-ink-100">
+      <%- icon('user-plus', { size: 18, className: 'text-ink-500' }) %>
+      Sign up
+    </a>
+  </nav>
+</div>
+
+<!-- Mobile bottom nav -->
+<nav class="fixed bottom-0 left-0 right-0 z-30 border-t border-ink-200/80 bg-white/90 glass lg:hidden">
+  <div class="mx-auto flex max-w-md items-center justify-around px-4 py-2">
+    <button id="nav-home-btn" class="flex flex-col items-center gap-0.5 rounded-lg px-4 py-1.5 text-ink-600 transition-colors active:scale-95">
+      <%- icon('home', { size: 20 }) %>
+      <span class="text-[11px] font-medium">Home</span>
+    </button>
+    <button id="nav-browse-btn" class="flex flex-col items-center gap-0.5 rounded-lg px-4 py-1.5 text-ink-600 transition-colors active:scale-95">
+      <%- icon('search', { size: 20 }) %>
+      <span class="text-[11px] font-medium">Browse</span>
+    </button>
+    <a href="/cart" id="nav-cart-btn" class="relative flex flex-col items-center gap-0.5 rounded-lg px-4 py-1.5 text-ink-600 transition-colors">
+      <div class="relative">
+        <%- icon('shopping-bag', { size: 20 }) %>
+        <span id="cart-badge-mobile" class="absolute -right-2 -top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-brand-500 px-1 text-[10px] font-bold text-white" style="display:none;"></span>
+      </div>
+      <span class="text-[11px] font-medium">Cart</span>
+    </a>
+  </div>
+</nav>

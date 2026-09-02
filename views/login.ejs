@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — Kadopay</title>
+    <meta name="description" content="Log in to your Kadopay account." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body>
+    <div class="min-h-screen bg-ink-50">
+      <%- include('partials/header') %>
+
+      <main class="flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 py-12">
+        <div class="w-full max-w-md">
+          <!-- Back link -->
+          <a href="/" class="mb-6 inline-flex items-center gap-1.5 text-sm font-medium text-ink-500 transition-colors hover:text-ink-700">
+            <%- icon('arrow-left', { size: 16 }) %>
+            Back to home
+          </a>
+
+          <div class="rounded-2xl bg-white p-8 shadow-card ring-1 ring-ink-200/60 animate-fade-up">
+            <!-- Logo + title -->
+            <div class="mb-8 text-center">
+              <div class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 shadow-md">
+                <%- icon('sparkles', { size: 24, strokeWidth: 2.5, className: 'text-white' }) %>
+              </div>
+              <h1 class="font-display text-2xl font-extrabold tracking-tight text-ink-900">Welcome back</h1>
+              <p class="mt-1.5 text-sm text-ink-500">Log in to your Kadopay account</p>
+            </div>
+
+            <!-- Login form -->
+            <form id="login-form" novalidate>
+              <!-- Email -->
+              <div class="auth-field">
+                <label for="login-email" class="auth-label">Email address</label>
+                <div class="auth-input-wrap">
+                  <span class="auth-input-icon"><%- icon('mail', { size: 16, className: 'text-ink-400' }) %></span>
+                  <input
+                    type="email"
+                    id="login-email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    class="auth-input pl-10"
+                    required
+                  />
+                </div>
+                <p class="auth-error" data-error-for="login-email"></p>
+              </div>
+
+              <!-- Password -->
+              <div class="auth-field">
+                <div class="flex items-center justify-between">
+                  <label for="login-password" class="auth-label">Password</label>
+                  <a href="/forgot-password" class="text-xs font-medium text-brand-600 transition-colors hover:text-brand-700">Forgot password?</a>
+                </div>
+                <div class="auth-input-wrap">
+                  <span class="auth-input-icon"><%- icon('lock', { size: 16, className: 'text-ink-400' }) %></span>
+                  <input
+                    type="password"
+                    id="login-password"
+                    name="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    class="auth-input pl-10 pr-10"
+                    required
+                  />
+                  <button type="button" class="auth-toggle-password" data-toggle="login-password" aria-label="Toggle password visibility">
+                    <%- icon('eye-off', { size: 16, className: 'text-ink-400' }) %>
+                  </button>
+                </div>
+                <p class="auth-error" data-error-for="login-password"></p>
+              </div>
+
+              <!-- Submit -->
+              <button type="submit" id="login-submit" class="auth-submit-btn">
+                <span class="auth-btn-text">Log in</span>
+                <span class="auth-btn-spinner" style="display:none;">
+                  <div class="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white"></div>
+                </span>
+              </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="my-6 flex items-center gap-3">
+              <div class="h-px flex-1 bg-ink-100"></div>
+              <span class="text-xs font-medium text-ink-400">OR</span>
+              <div class="h-px flex-1 bg-ink-100"></div>
+            </div>
+
+            <!-- Sign up link -->
+            <p class="text-center text-sm text-ink-500">
+              Don't have an account?
+              <a href="/signup" class="font-semibold text-brand-600 transition-colors hover:text-brand-700">Sign up</a>
+            </p>
+          </div>
+
+          <!-- Trust note -->
+          <div class="mt-6 flex items-center justify-center gap-2 text-xs text-ink-400">
+            <%- icon('shield-check', { size: 14, className: 'text-brand-500' }) %>
+            Your data is protected with 256-bit SSL encryption
+          </div>
+        </div>
+      </main>
+
+      <%- include('partials/footer') %>
+      <%- include('partials/mobile-nav') %>
+    </div>
+
+    <script src="/js/auth.js"></script>
+  </body>
+</html>
