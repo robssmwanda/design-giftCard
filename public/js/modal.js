@@ -57,6 +57,7 @@ export function openCardModal(brandId) {
         '</div>' +
       '</section>' +
       '<section class="kadopay-modal-form">' +
+        '<div class="kadopay-modal-scroll">' +
         '<div class="kadopay-modal-heading"><div><p class="kadopay-eyebrow kadopay-eyebrow-dark">Purchase details</p><h3>Choose your gift card</h3></div><span class="kadopay-modal-brand-dot" style="background: linear-gradient(135deg, ' + accent + ', ' + accent2 + ')"></span></div>' +
         '<div class="kadopay-form-section">' +
           '<label class="kadopay-form-label" for="modal-region">Country / Region</label>' +
@@ -67,8 +68,11 @@ export function openCardModal(brandId) {
         '<div class="kadopay-form-section"><label class="kadopay-form-label" for="modal-email">Delivery email</label><div class="kadopay-input-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><input type="email" id="modal-email" placeholder="you@example.com" /></div><p id="modal-email-error" class="kadopay-error" style="display:none;"></p><p class="kadopay-help-text">The gift card code will be delivered to this email instantly.</p></div>' +
         '<div class="kadopay-purchase-footer"><div class="kadopay-quantity"><span class="kadopay-form-label">Qty</span><div class="kadopay-quantity-control"><button id="modal-qty-dec" aria-label="Decrease quantity">−</button><span id="modal-qty">1</span><button id="modal-qty-inc" aria-label="Increase quantity">+</button></div></div><div class="kadopay-price"><span>You pay</span><div><span id="modal-price-strike" class="kadopay-price-strike" style="' + (discount > 0 ? '' : 'display:none;') + '">' + formatCurrency(firstCard.denomination) + '</span><strong id="modal-price-display">' + formatCurrency(firstCard.price) + '</strong></div></div></div>' +
         '<div id="modal-savings" class="kadopay-savings" style="' + (discount > 0 ? '' : 'display:none;') + '"><span id="modal-savings-text">You save ' + formatCurrency(firstCard.denomination - firstCard.price) + ' (' + discount + '%)</span></div>' +
+        '</div>' +
+        '<div class="kadopay-modal-footer">' +
         '<div class="kadopay-action-row"><button id="modal-add-cart" class="kadopay-action-button kadopay-cart-button"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5v14"/></svg> Add to cart</button><button id="modal-buy-now" class="kadopay-action-button kadopay-buy-button"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg> Buy now</button></div>' +
         '<div class="kadopay-secure-note"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Secure and encrypted payment</div>' +
+        '</div>' +
       '</section>' +
     '</div>';
 
