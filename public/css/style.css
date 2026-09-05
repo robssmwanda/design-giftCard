@@ -6,6 +6,78 @@
 
 /* Gift card modal */
 .z-\[60\]{z-index:60}
+.kadopay-purchase-modal{border:1px solid rgba(148,163,184,.28);}
+.kadopay-modal-layout{display:grid;grid-template-columns:minmax(300px,.88fr) minmax(460px,1.12fr);min-height:680px;}
+.kadopay-modal-preview{position:relative;overflow:hidden;padding:56px 40px 40px;background:linear-gradient(145deg,#eef7ff 0%,#e8edff 52%,#f3efff 100%);}
+.kadopay-preview-orb{position:absolute;border-radius:999px;pointer-events:none;filter:blur(1px);}
+.kadopay-preview-orb-one{width:270px;height:270px;right:-125px;top:-105px;background:rgba(255,255,255,.62);}
+.kadopay-preview-orb-two{width:230px;height:230px;left:-145px;bottom:-135px;background:rgba(255,255,255,.38);}
+.kadopay-eyebrow{margin:0;color:#7184a4;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;}
+.kadopay-eyebrow-dark{color:#64748b;}
+.kadopay-preview-title{max-width:360px;margin:14px 0 0;color:#12203b;font-family:Plus Jakarta Sans,system-ui,sans-serif;font-size:31px;font-weight:800;line-height:1.18;letter-spacing:-.035em;}
+.kadopay-preview-title span{display:inline;}
+.kadopay-preview-description{max-width:330px;margin:16px 0 0;color:#60718e;font-size:15px;line-height:1.55;}
+.kadopay-card-art{position:relative;height:210px;margin:34px 0 28px;padding:22px 24px;border-radius:20px;color:white;overflow:hidden;box-shadow:0 18px 30px -12px rgba(39,85,181,.38);}
+.kadopay-card-wave{position:absolute;border-radius:50%;transform:rotate(-18deg);}
+.kadopay-card-wave-one{width:280px;height:100px;left:-50px;bottom:-34px;background:rgba(255,255,255,.14);}
+.kadopay-card-wave-two{width:260px;height:120px;right:-60px;bottom:-46px;background:rgba(255,255,255,.11);}
+.kadopay-card-brand{max-width:190px;font-family:Plus Jakarta Sans,system-ui,sans-serif;font-size:18px;font-weight:800;line-height:1.15;}
+.kadopay-card-region{border-radius:999px;background:rgba(255,255,255,.88);padding:7px 10px;color:#1e3a8a;font-size:11px;font-weight:800;}
+.kadopay-card-mark{font-size:12px;font-weight:600;opacity:.7;letter-spacing:.04em;text-transform:uppercase;}
+.kadopay-card-denom{font-family:Plus Jakarta Sans,system-ui,sans-serif;font-size:23px;font-weight:800;}
+.kadopay-trust-list{display:grid;gap:15px;color:#5b6d8a;font-size:14px;}
+.kadopay-trust-list div{display:flex;align-items:center;gap:11px;}
+.kadopay-trust-icon{display:inline-flex;width:22px;height:22px;align-items:center;justify-content:center;border-radius:50%;background:#10b981;color:#fff;font-size:14px;font-weight:800;box-shadow:0 4px 10px rgba(16,185,129,.22);}
+.kadopay-modal-form{position:relative;padding:58px 40px 30px;background:#fff;}
+.kadopay-modal-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:34px;}
+.kadopay-modal-heading h3{margin:8px 0 0;color:#12203b;font-family:Plus Jakarta Sans,system-ui,sans-serif;font-size:25px;font-weight:800;letter-spacing:-.03em;}
+.kadopay-modal-brand-dot{display:block;width:16px;height:16px;border-radius:50%;box-shadow:0 0 0 5px rgba(16,185,129,.1);}
+.kadopay-form-section{margin-top:25px;}
+.kadopay-form-label{display:block;margin-bottom:10px;color:#12203b;font-size:15px;font-weight:700;}
+.kadopay-select-wrap,.kadopay-input-wrap{position:relative;display:flex;align-items:center;}
+.kadopay-select-wrap{height:61px;border:1px solid #dbe3ee;border-radius:15px;background:#fff;box-shadow:0 4px 14px rgba(15,23,42,.025);}
+.kadopay-region-select{width:100%;height:100%;appearance:none;border:0;background:transparent;padding:0 46px 0 48px;color:#1e293b;font-size:16px;font-weight:600;outline:0;}
+.kadopay-flag-mark{position:absolute;left:20px;color:#2563eb;font-size:20px;font-weight:800;pointer-events:none;}
+.kadopay-select-chevron{position:absolute;right:20px;color:#475569;font-size:22px;line-height:1;pointer-events:none;transform:translateY(-2px);}
+.kadopay-section-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;}
+.kadopay-section-heading .kadopay-form-label{margin-bottom:10px;}
+.kadopay-section-note{margin-bottom:10px;color:#94a3b8;font-size:12px;}
+.kadopay-denoms{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;}
+.kadopay-denoms .modal-denom-btn{min-height:51px;border-radius:12px;padding:10px 6px;font-size:14px;font-weight:700;}
+.kadopay-delivery-note{display:flex;align-items:flex-start;gap:12px;margin-top:26px;padding:16px 17px;border-radius:15px;background:#edf6ff;color:#5d769d;font-size:14px;line-height:1.45;}
+.kadopay-info-icon{display:inline-flex;flex:0 0 auto;width:20px;height:20px;align-items:center;justify-content:center;border-radius:50%;background:#3b82f6;color:#fff;font-size:13px;font-weight:800;}
+.kadopay-input-wrap{height:61px;border:1px solid #dbe3ee;border-radius:15px;color:#8091ac;transition:border-color .15s,box-shadow .15s;}
+.kadopay-input-wrap:focus-within{border-color:#34d399;box-shadow:0 0 0 4px rgba(16,185,129,.1);}
+.kadopay-input-wrap svg{margin-left:20px;flex:0 0 auto;}
+.kadopay-input-wrap input{width:100%;height:100%;border:0;outline:0;padding:0 18px 0 14px;color:#1e293b;font-size:16px;}
+.kadopay-input-wrap input::placeholder{color:#94a3b8;}
+.kadopay-help-text{margin:8px 0 0;color:#94a3b8;font-size:12px;}
+.kadopay-error{margin:6px 0 0;color:#ef4444;font-size:12px;}
+.kadopay-purchase-footer{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-top:26px;}
+.kadopay-quantity{display:flex;align-items:center;gap:17px;}
+.kadopay-quantity .kadopay-form-label{margin:0;}
+.kadopay-quantity-control{display:flex;align-items:center;gap:3px;border-radius:999px;background:#f3f6fa;padding:4px;}
+.kadopay-quantity-control button{display:flex;width:37px;height:37px;align-items:center;justify-content:center;border-radius:50%;color:#17233c;font-size:25px;line-height:1;transition:background .15s,transform .15s;}
+.kadopay-quantity-control button:hover{background:#fff;transform:scale(1.05);}
+.kadopay-quantity-control span{width:27px;text-align:center;color:#17233c;font-size:15px;font-weight:700;}
+.kadopay-price{text-align:right;}
+.kadopay-price>span{display:block;margin-bottom:4px;color:#8090a9;font-size:14px;}
+.kadopay-price>div{display:flex;align-items:baseline;gap:8px;justify-content:flex-end;}
+.kadopay-price strong{color:#12203b;font-family:Plus Jakarta Sans,system-ui,sans-serif;font-size:30px;font-weight:800;letter-spacing:-.04em;}
+.kadopay-price-strike{color:#94a3b8;font-size:13px;text-decoration:line-through;}
+.kadopay-savings{margin-top:8px;color:#047857;font-size:12px;font-weight:600;text-align:right;}
+.kadopay-action-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px;}
+.kadopay-action-button{display:flex;min-height:58px;align-items:center;justify-content:center;gap:10px;border-radius:14px;color:#fff;font-size:15px;font-weight:700;transition:transform .15s,box-shadow .15s,background .15s;}
+.kadopay-action-button:hover{transform:translateY(-1px);}
+.kadopay-action-button:active{transform:scale(.98);}
+.kadopay-cart-button{background:#121d36;box-shadow:0 10px 18px -12px rgba(15,23,42,.65);}
+.kadopay-cart-button:hover{background:#1e293b;}
+.kadopay-buy-button{background:#10b981;box-shadow:0 10px 18px -12px rgba(16,185,129,.75);}
+.kadopay-buy-button:hover{background:#059669;}
+.kadopay-secure-note{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:20px;color:#8090a9;font-size:12px;font-weight:600;}
+@media (max-width:767px){.kadopay-modal-layout{display:block;min-height:0}.kadopay-modal-preview{padding:34px 24px 28px}.kadopay-preview-title{font-size:25px}.kadopay-preview-description{font-size:14px}.kadopay-card-art{height:170px;margin:25px 0 22px}.kadopay-modal-form{padding:30px 24px 26px}.kadopay-modal-heading{margin-bottom:26px}.kadopay-modal-heading h3{font-size:22px}.kadopay-denoms{grid-template-columns:repeat(3,minmax(0,1fr))}.kadopay-purchase-footer{align-items:flex-start;flex-direction:column-reverse;gap:18px}.kadopay-price{text-align:left;width:100%}.kadopay-price>div{justify-content:flex-start}.kadopay-action-row{grid-template-columns:1fr}.kadopay-secure-note{margin-top:16px}.kadopay-modal-preview{min-height:0}}
+@media (min-width:768px) and (max-width:1023px){.kadopay-modal-layout{grid-template-columns:minmax(260px,.8fr) minmax(430px,1.2fr)}.kadopay-modal-preview{padding:45px 28px 32px}.kadopay-modal-form{padding:48px 28px 28px}.kadopay-preview-title{font-size:27px}.kadopay-card-art{height:180px}.kadopay-denoms{grid-template-columns:repeat(4,minmax(0,1fr))}}
+
 .max-h-\[90vh\]{max-height:90vh}
 .scale-95{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
 .scale-100{--tw-scale-x:1;--tw-scale-y:1;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}
