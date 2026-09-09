@@ -98,3 +98,11 @@
 .cart-qty-btn{transition:all .15s;cursor:pointer}
 .cart-qty-btn:hover{background-color:#fff}
 .min-w-\[5rem\]{min-width:5rem}
+
+/* Payment method selection */
+.pay-method-radio{width:20px;height:20px;border-radius:50%;border:2px solid #cbd5e1;flex:0 0 auto;transition:all .15s}
+.pay-method-radio-active{border-color:#10b981;background:#10b981;box-shadow:0 0 0 3px rgba(16,185,129,.15)}
+.pay-method-option{cursor:pointer}
+.pay-method-option:active{transform:scale(.99)}
+.mm-provider-btn{cursor:pointer}
+.mm-provider-btn:active{transform:scale(.99)}

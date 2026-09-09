@@ -12,6 +12,7 @@
     "@supabase/supabase-js": "^2.57.4",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
-    "mongoose": "^9.9.4"
+    "mongoose": "^9.9.4",
+    "stripe": "^22.6.1"
   }
 }
